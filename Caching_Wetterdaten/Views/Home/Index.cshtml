@@ -1,0 +1,26 @@
+﻿@model IEnumerable<WetterInfo>
+@{
+    ViewData["Title"] = "Wetterdaten";
+}
+
+<table class="table-bordered table-striped">
+    <tr>
+        <th>region</th>
+        <th>datum</th>
+        <th>heruntergeladen</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr class="line1">
+            <td>@item.Region</td>
+            <td>@item.WetterDatum</td>
+            <td>@item.DownloadDatum</td>
+        </tr>
+        <tr class="line2" style="display:none">
+            <td colspan="3">@item.Beschreibung</td>
+        </tr>
+    }
+</table>
+<br />
+
+<a asp-action="WetterDatenUpdaten" class="btn btn-info" role="button">Update</a>
